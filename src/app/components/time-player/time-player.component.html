@@ -1,0 +1,50 @@
+<div class="amp-time">
+  <button
+    type="button"
+    class="amp-time__play"
+    [attr.aria-label]="playLabel()"
+    (click)="time.toggle()"
+  >
+    {{ playLabel() }}
+  </button>
+
+  <div class="amp-time__speeds">
+    <button type="button" class="amp-time__chip" (click)="setPreset(presets.hourPerSec)">
+      {{ t('time.hourPerSec') }}
+    </button>
+    <button type="button" class="amp-time__chip" (click)="setPreset(presets.dayPerSec)">
+      {{ t('time.dayPerSec') }}
+    </button>
+    <button type="button" class="amp-time__chip" (click)="setPreset(presets.weekPerSec)">
+      {{ t('time.weekPerSec') }}
+    </button>
+  </div>
+
+  <label class="amp-time__slider">
+    <span>{{ t('time.speed') }}</span>
+    <input
+      type="range"
+      [min]="speedMinLog"
+      [max]="speedMax"
+      step="0.01"
+      [value]="speedLog()"
+      [attr.aria-valuemin]="speedMinLog"
+      [attr.aria-valuemax]="speedMax"
+      [attr.aria-valuenow]="speedLog()"
+      [attr.aria-label]="t('time.speed')"
+      (input)="onSpeedLogInput($any($event.target).value)"
+    />
+    <output class="amp-time__speed-val"
+      >{{ time.speedSimHoursPerRealSec() | number: '1.0-2' }} h/s</output
+    >
+  </label>
+
+  <div class="amp-time__readout" aria-live="polite">
+    <span>{{ t('time.utc') }}</span>
+    <strong>{{ utcText() }}</strong>
+  </div>
+
+  <button type="button" class="amp-time__now" (click)="time.setNow()">
+    {{ t('time.now') }}
+  </button>
+</div>

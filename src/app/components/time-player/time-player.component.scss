@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  border-top: 1px solid var(--amp-border);
+  background: color-mix(in srgb, var(--amp-bg-panel) 92%, #000);
+}
+
+.amp-time {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.65rem 1rem;
+  min-height: 3.25rem;
+}
+
+.amp-time__play,
+.amp-time__now,
+.amp-time__chip {
+  appearance: none;
+  border: 1px solid var(--amp-border);
+  background: var(--amp-bg-elevated);
+  color: var(--amp-text);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--amp-font-body);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.amp-time__play:hover,
+.amp-time__play:focus-visible,
+.amp-time__now:hover,
+.amp-time__now:focus-visible,
+.amp-time__chip:hover,
+.amp-time__chip:focus-visible {
+  border-color: var(--amp-accent);
+  color: var(--amp-accent);
+  outline: none;
+}
+
+.amp-time__play:focus-visible,
+.amp-time__now:focus-visible,
+.amp-time__chip:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--amp-accent) 35%, transparent);
+}
+
+.amp-time__play {
+  font-family: var(--amp-font-display);
+  letter-spacing: 0.04em;
+  min-width: 5.5rem;
+}
+
+.amp-time__speeds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.amp-time__slider {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1 1 14rem;
+  min-width: 12rem;
+  color: var(--amp-text-muted);
+  font-size: 0.8rem;
+}
+
+.amp-time__slider input[type='range'] {
+  flex: 1;
+  accent-color: var(--amp-accent);
+}
+
+.amp-time__speed-val {
+  font-family: var(--amp-font-mono);
+  color: var(--amp-text);
+  min-width: 5rem;
+  text-align: right;
+}
+
+.amp-time__readout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.75rem;
+  color: var(--amp-text-muted);
+  margin-left: auto;
+}
+
+.amp-time__readout strong {
+  font-family: var(--amp-font-mono);
+  font-size: 0.82rem;
+  color: var(--amp-text);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .amp-time__readout {
+    margin-left: 0;
+    width: 100%;
+  }
+}

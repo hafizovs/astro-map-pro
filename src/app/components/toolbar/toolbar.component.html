@@ -1,0 +1,47 @@
+<header class="amp-toolbar">
+  <div class="amp-toolbar__brand">
+    <span class="amp-toolbar__title">{{ t('app.title') }}</span>
+    <span class="amp-toolbar__subtitle">{{ t('app.subtitle') }}</span>
+  </div>
+
+  <div class="amp-toolbar__actions">
+    <div class="amp-toolbar__presets" aria-hidden="false">
+      @for (preset of presets; track preset.id) {
+        <button
+          type="button"
+          class="amp-toolbar__chip"
+          (click)="applyPreset(preset.id)"
+        >
+          {{ t(preset.nameKey) }}
+        </button>
+      }
+    </div>
+
+    <button
+      type="button"
+      class="amp-toolbar__btn"
+      [attr.aria-label]="themeLabel()"
+      (click)="ui.toggleTheme()"
+    >
+      {{ themeLabel() }}
+    </button>
+
+    <button
+      type="button"
+      class="amp-toolbar__btn"
+      [attr.aria-label]="t('toolbar.lang')"
+      (click)="i18n.toggleLocale()"
+    >
+      {{ langLabel() }}
+    </button>
+
+    <button
+      type="button"
+      class="amp-toolbar__btn"
+      [attr.aria-label]="t('toolbar.sidebar')"
+      (click)="ui.toggleSidebar()"
+    >
+      {{ t('toolbar.sidebar') }}
+    </button>
+  </div>
+</header>

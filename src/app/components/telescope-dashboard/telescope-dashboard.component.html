@@ -1,0 +1,18 @@
+<div class="amp-shell" [attr.data-theme]="ui.theme()">
+  <amp-toolbar />
+
+  <div class="amp-main">
+    <amp-sky-canvas class="amp-sky" />
+
+    @if (ui.sidebarOpen()) {
+      <aside class="amp-sidebar" [class.amp-sidebar--overlay]="true">
+        <amp-observer-panel />
+        @if (selection.selectedStarId(); as starId) {
+          <amp-star-detail-card [starId]="starId" />
+        }
+      </aside>
+    }
+  </div>
+
+  <amp-time-player />
+</div>
