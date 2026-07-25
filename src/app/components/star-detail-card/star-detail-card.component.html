@@ -1,0 +1,65 @@
+@if (info(); as data) {
+  <article class="amp-card">
+    <header class="amp-card__header">
+      <div>
+        <h2>{{ t(data.star.nameKey) }}</h2>
+        <p class="amp-card__latin">{{ data.star.nameLatin }}</p>
+      </div>
+      <button
+        type="button"
+        class="amp-card__close"
+        [attr.aria-label]="t('star.close')"
+        (click)="close()"
+      >
+        ×
+      </button>
+    </header>
+
+    <div class="amp-card__swatch" [style.background]="data.color"></div>
+
+    <dl class="amp-card__grid">
+      <div>
+        <dt>{{ t('star.bayer') }}</dt>
+        <dd>{{ data.star.bayer }}</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.constellation') }}</dt>
+        <dd>
+          @if (data.constellation) {
+            {{ t(data.constellation.nameKey) }}
+          } @else {
+            {{ data.star.constellationId }}
+          }
+        </dd>
+      </div>
+      <div>
+        <dt>{{ t('star.distance') }}</dt>
+        <dd>{{ data.star.distanceLy }} {{ t('star.ly') }}</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.ra') }}</dt>
+        <dd>{{ formatRa(data.star.raHours) }}</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.dec') }}</dt>
+        <dd>{{ formatDec(data.star.decDeg) }}</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.altitude') }}</dt>
+        <dd>{{ data.horizontal.altitudeDeg.toFixed(2) }}°</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.azimuth') }}</dt>
+        <dd>{{ data.horizontal.azimuthDeg.toFixed(2) }}°</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.magnitude') }}</dt>
+        <dd>{{ data.star.magnitude.toFixed(2) }}</dd>
+      </div>
+      <div>
+        <dt>{{ t('star.spectral') }}</dt>
+        <dd>{{ data.star.spectralClass }}</dd>
+      </div>
+    </dl>
+  </article>
+}

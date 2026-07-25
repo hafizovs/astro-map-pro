@@ -1,0 +1,85 @@
+<section class="amp-observer">
+  <h2 class="amp-observer__title">{{ t('observer.title') }}</h2>
+
+  <label class="amp-observer__field">
+    <span>{{ t('observer.latitude') }}</span>
+    <div class="amp-observer__row">
+      <input
+        type="range"
+        min="-90"
+        max="90"
+        step="0.1"
+        [value]="observer.latitudeDeg()"
+        [attr.aria-valuemin]="-90"
+        [attr.aria-valuemax]="90"
+        [attr.aria-valuenow]="observer.latitudeDeg()"
+        [attr.aria-label]="t('observer.latitude')"
+        (input)="onLatInput($any($event.target).value)"
+      />
+      <output class="amp-observer__readout">{{ observer.latitudeDeg() | number: '1.1-1' }}°</output>
+    </div>
+  </label>
+
+  <label class="amp-observer__field">
+    <span>{{ t('observer.longitude') }}</span>
+    <div class="amp-observer__row">
+      <input
+        type="range"
+        min="-180"
+        max="180"
+        step="0.1"
+        [value]="observer.longitudeDeg()"
+        [attr.aria-valuemin]="-180"
+        [attr.aria-valuemax]="180"
+        [attr.aria-valuenow]="observer.longitudeDeg()"
+        [attr.aria-label]="t('observer.longitude')"
+        (input)="onLonInput($any($event.target).value)"
+      />
+      <output class="amp-observer__readout">{{ observer.longitudeDeg() | number: '1.1-1' }}°</output>
+    </div>
+  </label>
+
+  <div class="amp-observer__lst">
+    <span>{{ t('observer.lst') }}</span>
+    <strong class="amp-observer__mono">{{ lstText() }}</strong>
+  </div>
+
+  <div class="amp-observer__block">
+    <h3>{{ t('observer.presets') }}</h3>
+    <div class="amp-observer__presets">
+      @for (preset of presets; track preset.id) {
+        <button type="button" class="amp-btn" (click)="applyPreset(preset.id)">
+          {{ t(preset.nameKey) }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="amp-observer__block">
+    <h3>{{ t('observer.layers') }}</h3>
+    <label class="amp-observer__toggle">
+      <input
+        type="checkbox"
+        [checked]="ui.showGrid()"
+        (change)="ui.toggleGrid()"
+      />
+      <span>{{ t('observer.grid') }}</span>
+    </label>
+    <label class="amp-observer__toggle">
+      <input
+        type="checkbox"
+        [checked]="ui.showConstellationLines()"
+        (change)="ui.toggleConstellationLines()"
+      />
+      <span>{{ t('observer.constellations') }}</span>
+    </label>
+    <label class="amp-observer__toggle">
+      <input
+        type="checkbox"
+        [checked]="ui.showStarLabels()"
+        (change)="ui.toggleStarLabels()"
+      />
+      <span>{{ t('observer.labels') }}</span>
+    </label>
+  </div>
+</section>
