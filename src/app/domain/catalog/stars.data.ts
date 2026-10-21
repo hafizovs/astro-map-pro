@@ -1,4 +1,4 @@
-import type { Star } from '../../models/astronomy.types';
+import type { Star } from '../../core/models/astronomy.types';
 
 /** Full J2000 educational catalog from Appendix A (69 stars, excluding beta-cen duplicate). */
 export const STARS: Star[] = [

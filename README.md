@@ -1,3 +1,7 @@
+## Live demo
+
+https://hafizovs.github.io/astro-map-pro/
+
 # AstroMap Pro
 
 Интерактивная карта звёздного неба и созвездий — образовательный цифровой планетарий на Angular 22+ с Canvas 2D и стереографической проекцией.
@@ -12,15 +16,13 @@
 ```bash
 npm install
 npm start
+npm test
+npm run build
 ```
 
 Приложение откроется на `http://localhost:4200/`.
 
 ## Тесты
-
-```bash
-npm test
-```
 
 Unit-тесты покрывают JD, GMST/LST, экваториальные → горизонтальные координаты и стереографическую проекцию (включая oracle Полярной на северном полюсе).
 
@@ -56,4 +58,7 @@ Unit-тесты покрывают JD, GMST/LST, экваториальные �
 
 ## Структура
 
-См. `src/app/` — `domain/`, `state/`, `services/`, `components/`. Rename-locked пути брифа: `models/astronomy.types.ts`, `services/star-catalog.service.ts`, `services/astro-math.service.ts`, `components/sky-canvas/`, `components/telescope-dashboard/`.
+- `src/app/core` — оболочка (telescope dashboard, toolbar, time player), i18n и горячие клавиши
+- `src/app/features/sky` — небосвод, каталог, астрономические расчёты и состояние неба
+- `src/app/features/observer` — панель наблюдателя и карточка звезды
+- `src/app/domain` — координаты, время и данные каталога

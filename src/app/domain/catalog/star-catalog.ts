@@ -1,4 +1,4 @@
-import type { Constellation, Star, StarId } from '../../models/astronomy.types';
+import type { Constellation, Star, StarId } from '../../core/models/astronomy.types';
 import { CONSTELLATIONS } from './constellations.data';
 import { STARS } from './stars.data';
 

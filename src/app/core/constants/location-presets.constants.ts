@@ -1,4 +1,4 @@
-import type { LocationPreset } from '../../models/astronomy.types';
+import type { LocationPreset } from '../models/astronomy.types';
 
 export const LOCATION_PRESETS: readonly LocationPreset[] = [
   {

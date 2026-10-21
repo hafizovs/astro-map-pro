@@ -1,4 +1,4 @@
-import type { HorizontalCoordinates } from '../../models/astronomy.types';
+import type { HorizontalCoordinates } from '../../core/models/astronomy.types';
 import { clamp, degToRad, normalizeDeg, normalizeHours, radToDeg } from './angle.util';
 
 /**

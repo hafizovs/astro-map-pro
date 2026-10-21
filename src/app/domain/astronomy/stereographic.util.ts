@@ -1,5 +1,5 @@
 import { DOME_RADIUS_FACTOR } from '../../core/constants/render.constants';
-import type { CameraState, HorizontalCoordinates, ScreenPoint } from '../../models/astronomy.types';
+import type { CameraState, HorizontalCoordinates, ScreenPoint } from '../../core/models/astronomy.types';
 import { degToRad } from './angle.util';
 
 /** Dome radius in pixels for given canvas size and zoom. */

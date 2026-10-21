@@ -1,5 +1,5 @@
 import { HIT_SLOP_PX } from '../../core/constants/render.constants';
-import type { Constellation, ProjectedStar, Star } from '../../models/astronomy.types';
+import type { Constellation, ProjectedStar, Star } from '../../core/models/astronomy.types';
 
 function distToSegment(
   px: number,

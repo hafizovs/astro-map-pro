@@ -1,4 +1,4 @@
-import type { Constellation, ConstellationEdge } from '../../models/astronomy.types';
+import type { Constellation, ConstellationEdge } from '../../core/models/astronomy.types';
 import { STARS } from './stars.data';
 
 function edges(...pairs: [string, string][]): ConstellationEdge[] {

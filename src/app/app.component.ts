@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TelescopeDashboardComponent } from './components/telescope-dashboard/telescope-dashboard.component';
+import { TelescopeDashboardComponent } from './core/layout/telescope-dashboard/telescope-dashboard.component';
 
 @Component({
   selector: 'amp-root',
