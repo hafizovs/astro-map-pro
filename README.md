@@ -4,14 +4,36 @@ https://hafizovs.github.io/astro-map-pro/
 
 # AstroMap Pro
 
-Интерактивная карта звёздного неба и созвездий — образовательный цифровой планетарий на Angular 22+ с Canvas 2D и стереографической проекцией.
+Interactive star map and constellation chart — an educational digital planetarium on Angular 22+ with Canvas 2D and stereographic projection.
 
-## Требования
+## About
+
+AstroMap Pro is an educational digital planetarium: an interactive map of the night sky and constellations on Angular 22+ with Canvas 2D and stereographic projection. Time and place run through Julian Date, GMST, and local sidereal time, then from equatorial coordinates to altitude and azimuth. A catalog of 72 bright or key stars (J2000) and constellation lines is drawn on a circular dome, zenith at the center and the horizon on the rim.
+
+## Capabilities
+
+- Pipeline: UTC → Julian Date → GMST → LST (using the observer’s longitude)
+- Equatorial (RA, Dec) → horizontal (azimuth, altitude) via the hour angle
+- Stereographic projection of the visible hemisphere (orthographic is not used)
+- 72 brightest / key stars (J2000) and constellation lines (UMa, Ori, Cas, Cyg, Sco, Cru, CMa, and others)
+- Time player, coordinate grid, constellation lines, star labels, and location presets
+- Angular 22+ standalone components, Signals, zoneless change detection, OnPush, prefix `amp`
+- RU/EN signal dictionaries
+
+## Functionality
+
+- Play or pause with Space, speed time up with `=` / `+`, and slow it with `-`
+- Toggle the grid (`G`), constellation lines (`C`), and star labels (`L`)
+- Jump to Moscow, the Equator, the North Pole, or the South Pole with `1`–`4`
+- Select a star, then press Esc to clear the selection or close the sidebar
+- Switch theme (`T`) and locale (`I`)
+
+## Requirements
 
 - Node.js ≥ 22
 - npm ≥ 10
 
-## Установка и запуск
+## Install and run
 
 ```bash
 npm install
@@ -20,45 +42,45 @@ npm test
 npm run build
 ```
 
-Приложение откроется на `http://localhost:4200/`.
+The app opens at `http://localhost:4200/`.
 
-## Тесты
+## Tests
 
-Unit-тесты покрывают JD, GMST/LST, экваториальные → горизонтальные координаты и стереографическую проекцию (включая oracle Полярной на северном полюсе).
+Unit tests cover JD, GMST/LST, equatorial → horizontal coordinates, and stereographic projection (including the Polaris-at-the-North-Pole oracle).
 
-## Математика (кратко)
+## Math (summary)
 
-1. **UTC → Julian Date → GMST → LST** (с учётом долготы наблюдателя).
-2. **Экваториальные (RA, Dec) → горизонтальные (az, alt)** через часовой угол.
-3. **Stereographic projection** видимой полусферы на круглый небосвод (зенит в центре, горизонт на ободе). Orthographic не используется.
+1. **UTC → Julian Date → GMST → LST** (using the observer’s longitude).
+2. **Equatorial (RA, Dec) → horizontal (az, alt)** via the hour angle.
+3. **Stereographic projection** of the visible hemisphere onto a circular sky dome (zenith at the center, horizon on the rim). Orthographic is not used.
 
-Каталог: **72** ярчайших / ключевых звёзд (J2000) и линии созвездий (UMa, Ori, Cas, Cyg, Sco, Cru, CMa и др.).
+Catalog: **72** brightest / key stars (J2000) and constellation lines (UMa, Ori, Cas, Cyg, Sco, Cru, CMa, and others).
 
 ## Hotkeys
 
 | Key | Action |
 |-----|--------|
 | Space | Play / Pause |
-| `=` / `+` | Ускорить время |
-| `-` | Замедлить время |
-| `G` | Сетка |
-| `C` | Линии созвездий |
-| `L` | Подписи звёзд |
-| `1`…`4` | Москва / Экватор / С. полюс / Ю. полюс |
-| `T` | Тема |
+| `=` / `+` | Speed up time |
+| `-` | Slow down time |
+| `G` | Grid |
+| `C` | Constellation lines |
+| `L` | Star labels |
+| `1`…`4` | Moscow / Equator / N. pole / S. pole |
+| `T` | Theme |
 | `I` | RU ↔ EN |
-| Esc | Снять выбор звезды / закрыть sidebar |
+| Esc | Clear star selection / close sidebar |
 
-## Стек
+## Stack
 
 - Angular **22+**, standalone components, Signals, zoneless CD, OnPush
 - Prefix: `amp`
 - HTML5 Canvas 2D only
-- i18n: signal-словари RU/EN
+- i18n: RU/EN signal dictionaries
 
-## Структура
+## Structure
 
-- `src/app/core` — оболочка (telescope dashboard, toolbar, time player), i18n и горячие клавиши
-- `src/app/features/sky` — небосвод, каталог, астрономические расчёты и состояние неба
-- `src/app/features/observer` — панель наблюдателя и карточка звезды
-- `src/app/domain` — координаты, время и данные каталога
+- `src/app/core` — shell (telescope dashboard, toolbar, time player), i18n, and hotkeys
+- `src/app/features/sky` — sky dome, catalog, astronomy calculations, and sky state
+- `src/app/features/observer` — observer panel and star card
+- `src/app/domain` — coordinates, time, and catalog data
