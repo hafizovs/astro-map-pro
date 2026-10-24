@@ -8,7 +8,7 @@ export class SkyUiStore {
   readonly showConstellationLines = signal(true);
   readonly showStarLabels = signal(false);
   readonly theme = signal<ThemeId>('dark');
-  readonly locale = signal<LocaleId>('ru');
+  readonly locale = signal<LocaleId>('en');
   readonly sidebarOpen = signal(true);
 
   toggleGrid(): void {
