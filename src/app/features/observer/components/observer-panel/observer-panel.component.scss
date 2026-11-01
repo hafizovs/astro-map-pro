@@ -113,3 +113,13 @@
 .amp-observer__toggle input {
   accent-color: var(--amp-accent);
 }
+
+@media (max-width: 375px) {
+  .amp-observer {
+    padding: 0.85rem 0.75rem;
+  }
+
+  .amp-observer__presets {
+    grid-template-columns: 1fr;
+  }
+}

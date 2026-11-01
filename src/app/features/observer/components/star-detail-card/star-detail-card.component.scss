@@ -85,3 +85,14 @@
   font-family: var(--amp-font-mono);
   font-size: 0.84rem;
 }
+
+@media (max-width: 375px) {
+  .amp-card {
+    margin: 0 0.75rem 0.85rem;
+    padding: 0.75rem 0.85rem 0.9rem;
+  }
+
+  .amp-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
