@@ -11,6 +11,7 @@ import { StarDetailCardComponent } from '../../../features/observer/components/s
 import { TimePlayerComponent } from '../time-player/time-player.component';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { HotkeysService } from '../../hotkeys.service';
+import { I18nService } from '../../i18n.service';
 import { SelectionStore } from '../../../features/sky/selection.store';
 import { SkyUiStore } from '../../../features/sky/sky-ui.store';
 
@@ -32,14 +33,23 @@ export class TelescopeDashboardComponent {
   readonly ui = inject(SkyUiStore);
   readonly selection = inject(SelectionStore);
   private readonly hotkeys = inject(HotkeysService);
+  private readonly i18n = inject(I18nService);
   private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 899px)').matches) {
+      this.ui.setSidebarOpen(false);
+    }
+
     this.hotkeys.start();
     this.destroyRef.onDestroy(() => this.hotkeys.stop());
 
     effect(() => {
       document.documentElement.dataset['theme'] = this.ui.theme();
     });
+  }
+
+  t(key: string): string {
+    return this.i18n.t(key);
   }
 }
